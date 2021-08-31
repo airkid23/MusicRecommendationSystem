@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Recommender/DataLoader/DataLoader.iml" filepath="$PROJECT_DIR$/Recommender/DataLoader/DataLoader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MusicRecommendationSystem.iml" filepath="$PROJECT_DIR$/.idea/MusicRecommendationSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Recommender/OfflineCFRecommender/OfflineCFRecommender.iml" filepath="$PROJECT_DIR$/Recommender/OfflineCFRecommender/OfflineCFRecommender.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Recommender/OnlineRecommender/OnlineRecommender.iml" filepath="$PROJECT_DIR$/Recommender/OnlineRecommender/OnlineRecommender.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Recommender/Recommender.iml" filepath="$PROJECT_DIR$/Recommender/Recommender.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Recommender/StatisticsRecommender/StatisticsRecommender.iml" filepath="$PROJECT_DIR$/Recommender/StatisticsRecommender/StatisticsRecommender.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rec_server/rec_server.iml" filepath="$PROJECT_DIR$/rec_server/rec_server.iml" />
+    </modules>
+  </component>
+</project>

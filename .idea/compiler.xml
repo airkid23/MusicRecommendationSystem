@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="rec_server" />
+        <module name="StatisticsRecommender" />
+        <module name="DataLoader" />
+        <module name="OnlineRecommender" />
+        <module name="OfflineCFRecommender" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="DataLoader" target="1.8" />
+      <module name="KafkaStream" target="1.8" />
+      <module name="MusicRecommendationSystem" target="1.8" />
+      <module name="OfflineCFRecommender" target="1.8" />
+      <module name="OnlineRecommender" target="1.8" />
+      <module name="rec_server" target="1.8" />
+      <module name="Recommender" target="1.8" />
+      <module name="StatisticsRecommender" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="rec_server" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,690 @@
+.m-banner {
+    width: 100%;
+    height: 336px;
+    background: url(../img/banner/bg_01.jpg) repeat-x 0 0;
+    overflow: hidden;
+}
+
+.m-banner > .g-w {
+    position: relative;
+}
+
+.m-banner .b-down {
+    width: 254px;
+    height: 336px;
+    position: absolute;
+    top: 0;
+    right: -2px;
+    background: url(../img/sprites/download.png) no-repeat 0 0;
+}
+
+.m-banner .b-down > a {
+    width: 215px;
+    height: 56px;
+    display: block;
+    margin: 212px 19px 0;
+}
+
+.m-banner .b-down > a:hover {
+    background: url(../img/sprites/download.png) no-repeat 0 -340px;
+}
+
+.m-banner .b-down > p {
+    color: #8d8d8d;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.m-banner > .g-w > .b-l,
+.m-banner > .g-w > .b-r {
+    background: url(../img/sprites/banner.png) no-repeat 0 9999px;
+    width: 37px;
+    height: 63px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -32px;
+    text-indent: -99999px;
+}
+
+.m-banner > .g-w > .b-l {
+    left: -60px;
+    background-position: 0 -360px;
+}
+
+.m-banner > .g-w > .b-l:hover {
+    background-position: 0 -430px;
+}
+
+.m-banner > .g-w > .b-r {
+    right: -60px;
+    background-position: 0 -508px;
+}
+
+.m-banner > .g-w > .b-r:hover {
+    background-position: 0 -578px;
+}
+
+.m-banner .b-tods {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 310px;
+    width: 730px;
+    height: 20px;
+}
+
+.m-banner .b-tods > a {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../img/sprites/banner.png) no-repeat 3px -343px;
+}
+
+.m-banner .b-tods > a:hover,
+.m-banner .b-tods > .active {
+    background-position: -16px -343px;
+}
+
+.main {
+    background: url(../img/sprites/wrap1.png) repeat-y 100% 100%;
+    border: solid #d3d3d3;
+    border-width: 0 1px;
+}
+
+.m-lt {
+    width: 940px;
+    margin-right: -251px;
+    float: left;
+    padding: 20px 20px 40px;
+}
+
+.m-lt > .lt-content {
+    margin-right: 250px;
+}
+
+.m-lt .hot-hd {
+    border-bottom: 2px solid #C10D0C;
+    height: 33px;
+    padding: 0 10px 0 34px;
+    background-position: -225px -156px;
+    line-height: 28px;
+}
+
+.m-lt .hot-hd > .a-lt {
+    float: left;
+    font-size: 20px;
+}
+
+.m-lt .hot-hd > .a-lt:hover {
+    text-decoration: none;
+}
+
+.m-lt .hot-hd > .a-rt {
+    float: right;
+    color: #666;
+}
+
+.m-lt .hot-hd > sub {
+    float: right;
+    width: 10px;
+    height: 33px;
+    background-position: 0 -231px;
+    margin-left: 6px;
+}
+
+.m-lt .hot-tab {
+    float: left;
+    margin-left: 20px;
+}
+
+.m-lt .hot-tab > a {
+    color: #666;
+}
+
+.m-lt .hot-tab > span {
+    margin: 0 10px;
+    font-weight: bold;
+    color: #dcccdc;
+}
+
+.m-lt .hot-tj > ul {
+    margin: 20px 0 0 -42px;
+    font-size: 0;
+}
+
+.m-lt .hot-tj li {
+    padding: 0 0 30px 42px;
+    width: 140px;
+    height: 204px;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.4;
+    vertical-align: top;
+    float: left;
+}
+
+.m-lt .hot-tj .hot-fm {
+    width: 140px;
+    height: 140px;
+    position: relative;
+}
+
+.m-lt .hot-tj .hot-fm > a {
+    width: 140px;
+    height: 140px;
+    display: block;
+    position: absolute;
+    background-position: 0 0;
+    left: 0;
+    top: 0;
+}
+
+.m-lt .hot-tj .hot-fm > .ht-first {
+    width: 40px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-position: -135px -220px;;
+}
+
+.m-lt .hot-tj .hot-fm > .fm-bottom {
+    width: 100%;
+    height: 27px;
+    color: #ccc;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-position: 0 -537px;
+    font-size: 12px;
+}
+
+.m-lt .hot-tj .hot-fm > .fm-bottom > span {
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.m-lt .hot-tj .hot-fm > .fm-bottom > sub {
+    width: 14px;
+    height: 10px;
+    background-position: 0 -24px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 9px 5px 9px 10px;
+}
+
+.m-lt .hot-tj .hot-fm > .fm-bottom > a {
+    width: 16px;
+    height: 16px;
+    float: right;
+    background-position: 0 0;
+    margin: 5px 10px 0 0;
+}
+
+.m-lt .hot-tj .hot-fm > .fm-bottom > a:hover {
+    background-position: 0 -60px;
+}
+
+.hot-tj li > p {
+    margin: 8px 0 3px;
+}
+
+.hot-tj li > p > a {
+    vertical-align: middle;
+}
+
+.hot-tj .dtjm {
+    width: 35px;
+    height: 15px;
+    display: inline-block;
+    background-position: -31px -658px;
+    vertical-align: middle;
+    margin-right: 3px;
+    margin-bottom: 3px;
+}
+
+.new-sj .die-banner {
+    padding-left: 17px;
+    height: 186px;
+    margin: 20px 0 37px;
+    border: 1px solid #d3d3d3;
+    position: relative;
+    background-color: #f5f5f5;
+}
+
+.new-sj .banners {
+    width: 634px;
+    margin-right: 26px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-left: 11px;
+}
+
+.new-sj .die-banner > .a-lt,
+.new-sj .die-banner > .a-rt {
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: 50%;
+    margin-top: -24px;
+}
+
+.new-sj .die-banner > .a-lt {
+    left: 1px;
+    background-position: -257px -75px;
+}
+
+.new-sj .die-banner > .a-lt:hover {
+    background-position: -277px -75px;
+}
+
+.new-sj .die-banner > .a-rt {
+    right: 5px;
+    background-position: -304px -75px;
+}
+
+.new-sj .die-banner > .a-rt:hover {
+    background-position: -324px -75px;
+}
+
+.new-sj .banners > ul {
+    width: 645px;
+    margin-top: 28px;
+    height: 150px;
+    position: absolute;
+    left: -11px;
+    top: 0;
+}
+
+.new-sj .banners > .two {
+    left: -655px;
+}
+
+.new-sj .banners li {
+    margin-left: 11px;
+    width: 118px;
+    float: left;
+    height: 100%;
+    background-position: -260px 100px;
+}
+
+.new-sj .banners li > p {
+    line-height: 18px;
+    width: 90%;
+}
+
+.new-sj .banners .a-top:hover {
+    color: #000;
+}
+
+.new-sj .banners .a-bottom {
+    color: #666;
+}
+
+.new-sj .banners .b-img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 7px;
+    position: relative;
+}
+
+.new-sj .banners .b-img > .msk {
+    width: 118px;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-position: 0 -570px;
+}
+
+.new-sj .banners .b-img:hover > .play {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background-position: 0 -85px;
+}
+
+.new-sj .banners .b-img:hover > .play:hover {
+    background-position: 0 -110px;
+}
+
+.bangdan .hot-top {
+    margin-top: 20px;
+    height: 472px;
+    width: 689px;
+    background: url(../img/sprites/index_bill.png) no-repeat 0 0;
+}
+
+.bangdan .hot-top > .top-bang {
+    width: 230px;
+    height: 470px;
+    float: left;
+}
+
+.bangdan .hot-top > .min-w {
+    width: 229px;
+}
+
+.hot-top .top {
+    padding: 20px 0 0 20px;
+    height: 100px;
+}
+
+.hot-top .top > .top-lt {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    float: left;
+}
+
+.hot-top .top > .top-lt > a {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.hot-top .top > .top-lt > img {
+    width: 100%;
+    height: 100%;
+}
+
+.hot-top .top > .top-rt {
+    float: left;
+    margin: 10px 0 0 10px;
+}
+
+.hot-top .top > .top-rt > h3 {
+    font-size: 14px;
+    color: #333;
+}
+
+.hot-top .top-rt > .btn {
+    margin-top: 10px;
+}
+
+.top-bang .btn > a {
+    width: 22px;
+    height: 22px;
+    float: left;
+    margin-right: 10px;
+    display: block;
+}
+
+.top-bang .btn > .btn-pl {
+    background-position: -267px -205px;
+}
+
+.top-bang .btn > .btn-pl:hover {
+    background-position: -267px -235px;
+}
+
+.top-bang .btn > .btn-ad {
+    background-position: -300px -205px;
+}
+
+.top-bang .btn > .btn-ad:hover {
+    background-position: -300px -235px;
+}
+
+.bangdan .top-bang > ol {
+    margin-left: 50px;
+    line-height: 32px;
+}
+
+.bangdan .top-bang li {
+    height: 32px;
+    vertical-align: middle;
+}
+
+.bangdan .top-bang li > span {
+    height: 32px;
+    width: 35px;
+    margin-left: -35px;
+    float: left;
+    font-size: 16px;
+    text-align: center;
+}
+
+.top-red {
+    color: #c10d0c;
+}
+
+.bangdan .top-bang li > .g-thide {
+    width: 170px;
+    color: #000;
+    height: 32px;
+    float: left;
+}
+
+.bangdan .top-bang .l-hvr > .g-thide {
+    width: 94px;
+}
+
+.bangdan .top-bang .min-btn {
+    width: 81px;
+    height: 32px;
+    float: right;
+    display: none;
+}
+
+.bangdan .l-hvr > .min-btn {
+    display: block;
+}
+
+.bangdan .top-bang .min-btn > a {
+    width: 17px;
+    height: 17px;
+    float: left;
+    margin: 8px 10px 0 0;
+}
+
+.bangdan .min-btn > .bf {
+    background-position: -267px -268px;
+}
+
+.bangdan .l-hvr>.min-btn > .bf:hover {
+    background-position: -267px -288px;
+}
+
+.bangdan .min-btn > .tj {
+    background-position: 0px -698px;
+}
+
+.bangdan .l-hvr>.min-btn > .tj:hover {
+    background-position: -22px -698px;
+}
+
+.bangdan .min-btn > .sc {
+    background-position: -297px -268px;
+}
+
+.bangdan .l-hvr>.min-btn > .sc:hover {
+    background-position: -297px -288px;
+}
+
+.bangdan .top-bang > .top-all {
+    height: 32px;
+}
+
+.bangdan .top-bang > .top-all > a {
+    float: right;
+    margin-right: 32px;
+    line-height: 32px;
+    color: #000;
+}
+
+.m-rt {
+    float: right;
+    width: 250px;
+}
+
+.m-mylogin {
+    height: 126px;
+    background-position: 0 0;
+}
+
+.m-mylogin > p {
+    width: 205px;
+    line-height: 22px;
+    padding: 16px 0;
+    margin: 0 auto;
+    color: #666;
+}
+
+.m-mylogin > a {
+    width: 100px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+    background-position: 0 -195px;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    text-shadow: 0 1px 0 #8a060b;
+}
+
+.m-mylogin > a:hover {
+    text-decoration: none;
+    background-position: -110px -195px;
+}
+
+.m-singer {
+    margin-top: 15px;
+}
+
+.m-rt-h {
+    width: 210px;
+    height: 23px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ccc;
+}
+
+.m-singer > h3 > a {
+    float: right;
+    color: #666;
+    font-weight: normal;
+}
+
+.m-singer > ul {
+    margin: 6px 0 14px 20px;
+}
+
+.m-singer li {
+    background-color: #fafafa;
+    margin-top: 14px;
+    float: left;
+    width: 210px;
+    height: 62px;
+}
+
+.m-singer li:hover {
+    background-color: #f4f4f4;
+}
+
+.m-singer li > a {
+    display: block;
+}
+
+.m-singer li > a:hover {
+    text-decoration: none;
+}
+
+.m-singer li > a > img {
+    float: left;
+}
+
+.m-singer li > a > div {
+    float: left;
+    height: 60px;
+    width: 133px;
+    border: solid #e9e9e9;
+    border-width: 1px 1px 1px 0;
+    padding-left: 14px;
+}
+
+.m-singer li > a > div > h4 {
+    margin: 8px 0 11px 0;
+    font-size: 14px;
+}
+
+.m-singer li > a > div > p {
+    width: 80%;
+    color: #666;
+}
+
+.m-music > a {
+    width: 160px;
+    margin-left: 20px;
+    display: inline-block;
+    background-position: 0 -59px;
+    padding-left: 50px;
+}
+
+.m-music > a:hover {
+    background-position: 0 -141px;
+}
+
+.m-music > a > i {
+    width: 160px;
+    height: 30px;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 30px;
+    background-position: right -100px;
+}
+
+.m-music > a:hover > i {
+    background-position: right -182px;
+}
+
+.m-dj {
+    margin-top: 30px;
+}
+
+.m-dj > ul {
+    margin: 10px 0 0 20px;
+}
+
+.m-dj li {
+    margin-top: 10px;
+    float: left;
+}
+
+.m-dj li > a {
+    float: left;
+    margin-right: 10px;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.info {
+    float: left;
+    width: 160px;
+    line-height: 21px;
+}
+
+.info > a {
+    float: left;
+}
+
+.info > sub {
+    width: 12px;
+    height: 12px;
+    display: block;
+    float: left;
+    margin-top: 4px;
+    background: url(../img/sprites/icon.png) no-repeat 0 0;
+}
+
+.info > p {
+    width: 160px;
+    color: #666;
+}

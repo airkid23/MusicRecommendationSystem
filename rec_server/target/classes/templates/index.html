@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta charset="UTF-8">
+    <title>首页-音乐推荐系统</title>
+    <link rel="stylesheet" href="/css/core.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body>
+<!--公共头部-->
+<div id="g-topbar" class="g-topbar">
+    <!--上层bar-->
+    <div class="m-top">
+        <div class="wrap g-ww">
+            <!--导航部分-->
+            <ul class="m-nav" id="m-nav">
+                <li><a href="/"><img src="/img/registAndLoginPage/newlogo.png" style="width: 256px; height: 70px"/></a></li>
+                <li>
+                    <a class="active" href="#" hidefocus="true">
+                        <em>发现音乐</em>
+                        <sub>&nbsp;</sub>
+                    </a>
+                </li>
+                <li>
+                    <a href="/toRanking">
+                        <em>排行榜</em>
+                        <sub>&nbsp;</sub>
+                    </a>
+                </li>
+                <li>
+                    <a href="/toPlaylist">
+                        <em>歌单</em>
+                        <sub>&nbsp;</sub>
+                    </a>
+                </li>
+
+            </ul>
+            <div class="m-login">
+                <a href="/toLogin"  th:if="${session.user} eq null" id="a-login">登录</a>
+                <a href="/logout"><span th:if="${session.user} ne null" th:text="${session.user.uname}"></span></a>
+
+            </div>
+
+            <div class="m-search">
+                <input type="text" placeholder="单曲/歌手/专辑/歌单/MV/用户">
+            </div>
+
+        </div>
+    </div>
+    <!--中层bar-->
+    <div class="m-center"></div>
+</div>
+
+<!--main部分-->
+<div class="main g-w clearfix">
+    <div class="m-lt">
+        <div class="lt-content">
+            <div class="hot-tj">
+                <div class="hot-hd m-bg">
+                    <a href="#" class="a-lt f-ff2">猜你喜欢</a>
+                    <div class="hot-tab">
+                        <a href="#">华语</a>
+                        <span>|</span>
+                        <a href="#">流行</a>
+                        <span>|</span>
+                        <a href="#">摇滚</a>
+                        <span>|</span>
+                        <a href="#">民谣</a>
+                        <span>|</span>
+                        <a href="#">电子</a>
+                    </div>
+                    <sub class="m-bg"></sub>
+                    <a href="#" class="a-rt">更多</a>
+                </div>
+                <ul class="clearfix">
+                    <li th:each="p: ${playlists}">
+                        <div class="hot-fm">
+                            <img th:src="${p.playlistCoverUrl}" style="height: 140px; width: 140px" alt="">
+                            <a th:href="@{/playlist/getSinglePlaylistInfo/} + ${p.playlistID}"  class="g-coverall"></a>
+                            <div class="fm-bottom g-coverall">
+                                <a th:href="@{/playlist/getSinglePlaylistInfo/} + ${p.playlistID}" class="g-iconall"></a>
+                                <sub class="g-iconall"></sub>
+                                <span th:text="${#strings.substring(p.playCount,0,#strings.length(p.playCount)-4)} + '万'">49万</span>
+                            </div>
+                        </div>
+                        <p>
+                            <!--<i class="dtjm g-icon"></i>-->
+                            <a th:href="@{/playlist/getSinglePlaylistInfo/} + ${p.playlistID}" th:text="${p.playlistName}">怀旧｜予谁思念，清瘦了我的岁月</a>
+                        </p>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="new-sj" th:if="${userCFRec} ne null">
+                <div class="hot-hd m-bg">
+                    <a href="#" class="a-lt f-ff2">基于用户的协同过滤推荐</a>
+                    <sub class="m-bg"></sub>
+                    <a href="#" class="a-rt">更多</a>
+                </div>
+                <div class="die-banner" id="die_banner">
+                    <a href="#" class="a-lt m-bg"></a>
+                    <div class="banners">
+                        <ul>
+                            <li class="m-bg"   th:each=" i : ${userCFRec}">
+                                <div class="b-img">
+                                    <img th:src="${i.playlistCoverUrl}" style="width: 118px;height: 100px" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a th:href="@{/playlist/getSinglePlaylistInfo/} + ${i.playlistID}" th:text="${#strings.abbreviate(i.playlistName,15)}" class="a-top">Forget Me Not</a>
+                                </p>
+<!--                                <p class="g-thide">-->
+<!--                                    <a th:href="@{/playlist/getSinglePlaylistInfo/} + ${i.playlistID}" class="a-bottom">中島美嘉</a>-->
+<!--                                </p>-->
+                            </li>
+
+                        </ul>
+                        <ul class="two">
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-06.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">Joanne (Deluxe)</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">Lady Gaga</a>
+                                </p>
+                            </li>
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-07.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">成都</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">赵雷</a>
+                                </p>
+                            </li>
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-08.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">SQUARE TWO</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">BLACKPINK</a>
+                                </p>
+                            </li>
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-09.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">年轮说</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">杨丞琳</a>
+                                </p>
+                            </li>
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-10.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">人生要漂亮</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">安心亚</a>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#" class="a-rt m-bg"></a>
+                </div>
+            </div>
+            <div class="new-sj" th:if="${itemCF} ne null">
+                <div class="hot-hd m-bg">
+                    <a href="#" class="a-lt f-ff2">基于物品的协同过滤推荐</a><span th:text="'根据你评过'+ ${pledScore} +'分的歌单《'+ ${pled} + '》进行推荐'"></span>
+                    <sub class="m-bg"></sub>
+                    <a href="#" class="a-rt">更多</a>
+                </div>
+                <div class="die-banner" >
+                    <a href="#" class="a-lt m-bg" ></a>
+                    <div class="banners">
+                        <ul>
+                            <li class="m-bg"   th:each=" i : ${itemCF}">
+                                <div class="b-img">
+                                    <img th:src="${i.playlistCoverUrl}" style="width: 118px;height: 100px" alt="">
+                                    <a th:href="@{/playlist/getSinglePlaylistInfo/} + ${i.playlistID}"class="msk g-coverall"></a>
+                                    <a th:href="@{/playlist/getSinglePlaylistInfo/} + ${i.playlistID}" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a th:href="@{/playlist/getSinglePlaylistInfo/} + ${i.playlistID}" th:text="${#strings.abbreviate(i.playlistName,15)}" class="a-top">Forget Me Not</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a th:href="@{/playlist/getSinglePlaylistInfo/} + ${i.playlistID}"  class="a-bottom"></a>
+                                </p>
+                            </li>
+
+                        </ul>
+                        <ul class="two">
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-06.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">Joanne (Deluxe)</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">Lady Gaga</a>
+                                </p>
+                            </li>
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-07.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">成都</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">赵雷</a>
+                                </p>
+                            </li>
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-08.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">SQUARE TWO</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">BLACKPINK</a>
+                                </p>
+                            </li>
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-09.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">年轮说</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">杨丞琳</a>
+                                </p>
+                            </li>
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-10.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">人生要漂亮</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">安心亚</a>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#" class="a-rt m-bg"></a>
+                </div>
+            </div>
+            <div class="new-sj" th:if="${lfmRec} ne null">
+                <div class="hot-hd m-bg">
+                    <a href="#" class="a-lt f-ff2">基于隐语义模型的协同过滤推荐</a>
+                    <sub class="m-bg"></sub>
+                    <a href="#" class="a-rt">更多</a>
+                </div>
+                <div class="die-banner" >
+                    <a href="#" class="a-lt m-bg"></a>
+                    <div class="banners">
+                        <ul>
+                            <li class="m-bg"   th:each=" i : ${lfmRec}">
+                                <div class="b-img">
+                                    <img th:src="${i.playlistCoverUrl}" style="width: 118px;height: 100px" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a th:href="@{/playlist/getSinglePlaylistInfo/} + ${i.playlistID}" th:text="${#strings.abbreviate(i.playlistName,15)}" class="a-top">Forget Me Not</a>
+                                </p>
+<!--                                <p class="g-thide">-->
+<!--                                    <a th:href="@{/playlist/getSinglePlaylistInfo/} + ${i.playlistID}" class="a-bottom">中島美嘉</a>-->
+<!--                                </p>-->
+                            </li>
+
+                        </ul>
+                        <ul class="two">
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-06.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">Joanne (Deluxe)</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">Lady Gaga</a>
+                                </p>
+                            </li>
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-07.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">成都</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">赵雷</a>
+                                </p>
+                            </li>
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-08.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">SQUARE TWO</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">BLACKPINK</a>
+                                </p>
+                            </li>
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-09.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">年轮说</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">杨丞琳</a>
+                                </p>
+                            </li>
+                            <li class="m-bg">
+                                <div class="b-img">
+                                    <img src="/img/singer/die-10.jpg" alt="">
+                                    <a href="#" class="msk g-coverall"></a>
+                                    <a href="#" class="play g-iconall"></a>
+                                </div>
+                                <p class="g-thide">
+                                    <a href="#" class="a-top">人生要漂亮</a>
+                                </p>
+                                <p class="g-thide">
+                                    <a href="#" class="a-bottom">安心亚</a>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#" class="a-rt m-bg"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-rt">
+        <div class="m-mylogin m-bg" th:if="${session.user} eq null">
+            <p>登录可以享受无限收藏的乐趣，并且无限同步到手机</p>
+            <a href="/toLogin" class="m-bg" id="user_login">用户登录</a>
+        </div>
+        <div class="m-singer">
+            <h3 class="m-rt-h">
+                <a href="#">查看全部></a>
+                <span>入驻歌手</span>
+            </h3>
+            <ul class="clearfix">
+                <li>
+                    <a href="#">
+                        <img src="/img/singer/singer_01.jpg" alt="">
+                        <div>
+                            <h4>
+                                <span>张惠妹aMEI</span>
+                            </h4>
+                            <p class="g-thide">台湾歌手张惠妹</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/img/singer/singer_02.jpg" alt="">
+                        <div>
+                            <h4>
+                                <span>尚雯婕</span>
+                            </h4>
+                            <p class="g-thide">原创电子唱作人</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/img/singer/singer_03.jpg" alt="">
+                        <div>
+                            <h4>
+                                <span>羽泉组合</span>
+                            </h4>
+                            <p class="g-thide">国内知名演唱组合 羽泉</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/img/singer/singer_04.jpg" alt="">
+                        <div>
+                            <h4>
+                                <span>李志</span>
+                            </h4>
+                            <p class="g-thide">个体音乐人李志</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/img/singer/singer_05.jpg" alt="">
+                        <div>
+                            <h4>
+                                <span>马頔麻油叶</span>
+                            </h4>
+                            <p class="g-thide">民谣音乐人</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="m-music">
+                <a href="#" class="m-btn">
+                    <i class="m-btn">申请成为网易音乐人</i>
+                </a>
+            </div>
+        </div>
+        <div class="m-dj">
+            <h3 class="m-rt-h">
+                <span>热门DJ</span>
+            </h3>
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="/img/singer/dj_03.jpg" alt="">
+                    </a>
+                    <div class="info">
+                        <a href="#">灵伟</a>
+                        <sub>&nbsp;</sub>
+                        <p class="g-thide">电台DJ、资深乐评人</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/img/singer/dj_02.jpg" alt="">
+                    </a>
+                    <div class="info">
+                        <a href="#">庞舸</a>
+                        <sub>&nbsp;</sub>
+                        <p class="g-thide">深圳电台飞扬971主持人</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/img/singer/dj_04.jpg" alt="">
+                    </a>
+                    <div class="info">
+                        <a href="#">林海</a>
+                        <sub>&nbsp;</sub>
+                        <p class="g-thide">著名音乐节目主持人</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/img/singer/dj_02.jpg" alt="">
+                    </a>
+                    <div class="info">
+                        <a href="#">阿鹏叔</a>
+                        <sub>&nbsp;</sub>
+                        <p class="g-thide">桒惪SOUND创办人</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/singer/dj_05.jpg" alt="">
+                    </a>
+                    <div class="info">
+                        <a href="#">DJ晓苏</a>
+                        <sub>&nbsp;</sub>
+                        <p class="g-thide">独立DJ，CRI环球旅游广播特邀DJ</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--底部播放部分-->
+<div class="g-play" id="g_play">
+    <div class="p-bg g-playbar"></div>
+    <div class="p-main">
+        <div class="g-w" id="play">
+            <div class="p-kz">
+                <a href="javascript:;" title="上一首" class="kz-s g-playbar"></a>
+                <a href="javascript:;" title="播放" class="kz-p g-playbar"></a>
+                <a href="javascript:;" title="下一首" class="kz-x g-playbar"></a>
+            </div>
+            <div class="p-jd">
+                <div class="p-img">
+                    <img src="/img/sprites/default_album.jpg" alt="">
+                    <a href="javascript:;" class="g-playbar"></a>
+                </div>
+                <div class="jindu">
+                    <div class="tiao g-statbar">
+                        <span class="t-red g-statbar"></span>
+                        <span class="t-btn">
+                            <i></i>
+                        </span>
+                    </div>
+                    <span class="t-time">
+                        <i>00:00</i>
+                        <em>/</em>
+                        00:00
+                    </span>
+                </div>
+                <div class="add-btn">
+                    <a href="javascript:;" class="btn-a1 g-playbar" title="收藏"></a>
+                    <a href="javascript:;" class="btn-a2 g-playbar" title="分享"></a>
+                </div>
+            </div>
+            <div class="p-fx g-playbar">
+                <a href="javascript:;" class="a-yl g-playbar"></a>
+                <a href="javascript:;" class="a-sx g-playbar a-xunhuai"></a>
+                <a href="javascript:;" class="a-bflb g-playbar">
+                    <i>0</i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="suo">
+        <div class="suo-lt g-playbar">
+            <a href="javascript:;" class="a-suo g-playbar"></a>
+        </div>
+        <div class="suo-rt g-playbar"></div>
+    </div>
+</div>
+
+
+<!--公共底部-->
+<div class="g-footer">
+    <div class="g-w">
+        <a href="#" class="a-one">
+            <span class="f-f3">音乐推荐系统</span>
+            <br>
+            <span class="f-f4">基于协同过滤及内容推荐</span>
+        </a>
+        <div class="copy">
+            <p>
+                <span>·</span><a href="http://www.beian.miit.gov.cn/">粤ICP备20008693号</a><span>·</span>
+                <br><a href="javascript:;">Copyright © 2020</a>
+            </p>
+        </div>
+    </div>
+</div>
+<a href="#" id="g_back" class="m-back g-sprite">回到顶部</a>
+</body>
+</html>
+<!--<script src="/js/music.js"></script>-->
+<script src="/js/index.js"></script>
+<script src="/js/main.js"></script>

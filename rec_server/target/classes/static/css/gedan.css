@@ -1,0 +1,251 @@
+.all-gedan {
+    padding: 40px;
+    width: 900px;
+    min-height: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #d3d3d3;
+    border-width: 0 1px;
+}
+
+.all-gedan > .gedan-title {
+    height: 40px;
+    border-bottom: 2px solid #c20c0c;
+}
+
+.gedan-title>h3 {
+    float: left;
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.gedan-title>h3> span {
+    float: left;
+}
+
+.tab {
+    font-size: 12px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.tab > a {
+    color: #666;
+}
+
+.tab > span {
+    margin: 0 10px;
+    font-weight: bold;
+    color: #dcccdc;
+}
+
+.title-hot {
+    float: right;
+    background-position: 0 0;
+}
+
+.title-hot>a {
+    width: 46px;
+    height: 29px;
+    display: block;
+    text-align: center;
+    line-height: 29px;
+}
+
+.title-hot .a1 {
+    float: left;
+    color: #fff;
+}
+
+.title-hot .a2 {
+    float: right;
+}
+
+.all-gedan > ul {
+    margin: 30px 0 0 -50px;
+    font-size: 0;
+}
+
+.all-gedan > ul > li {
+    padding: 0 0 30px 50px;
+    width: 140px;
+    height: 188px;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.4;
+    vertical-align: top;
+    float: left;
+}
+
+.all-gedan .hot-fm {
+    width: 140px;
+    height: 140px;
+    position: relative;
+}
+
+.all-gedan .hot-fm > a {
+    width: 140px;
+    height: 140px;
+    display: block;
+    position: absolute;
+    background-position: 0 0;
+    left: 0;
+    top: 0;
+}
+
+.all-gedan .hot-fm > .ht-first {
+    width: 40px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-position: -135px -220px;
+    ;
+}
+
+.all-gedan .hot-fm > .fm-bottom {
+    width: 100%;
+    height: 27px;
+    color: #ccc;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-position: 0 -537px;
+    font-size: 12px;
+}
+
+.all-gedan .hot-fm > .fm-bottom > span {
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.all-gedan .hot-fm > .fm-bottom > sub {
+    width: 14px;
+    height: 10px;
+    background-position: 0 -24px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 9px 5px 9px 10px;
+}
+
+.hot-fm > .fm-bottom > a {
+    width: 16px;
+    height: 16px;
+    float: right;
+    background-position: 0 0;
+    margin: 5px 10px 0 0;
+}
+
+.hot-fm > .fm-bottom > a:hover {
+    background-position: 0 -60px;
+}
+
+.all-gedan > ul > li > p {
+    margin: 8px 0 3px;
+    width: 100%;
+}
+
+.all-gedan > ul > li > .dec {
+    margin: 0;
+}
+
+.all-gedan > ul > li > p > a {
+    vertical-align: middle;
+    max-width: 100%;
+    display: inline-block;
+}
+
+.s-fc4 {
+    font-size: 12px;
+    color: #666;
+}
+
+.mn {
+    font-size: 12px;
+}
+
+.u-page {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.u-page a {
+    background: url(../img/sprites/button.png) no-repeat 0 99999px;
+}
+
+.u-page a:hover {
+    text-decoration: none;
+}
+
+.u-page .zbtn {
+    height: 24px;
+    line-height: 24px;
+    color: #333;
+    text-align: left;
+    padding: 0;
+}
+
+.u-page .zbtn,
+.u-page .zpgi {
+    margin: 0 1px 0 2px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    vertical-align: middle;
+}
+
+.u-page .zprv {
+    width: 47px;
+    padding-left: 22px;
+    background-position: 0 -560px;
+}
+
+.u-page .zprv:hover {
+    background-position: 0 -590px;
+}
+
+.u-page .znxt {
+    width: 57px;
+    padding-left: 12px;
+    background-position: -75px -560px;
+}
+
+.u-page .znxt:hover {
+    background-position: -75px -590px;
+}
+
+.u-page .zprv.js-disable,
+.u-page .zprv.js-disable:hover {
+    background-position: 0 -620px;
+    color: #cacaca;
+    cursor: default;
+}
+
+.u-page .znxt.js-disable,
+.u-page .znxt.js-disable:hover {
+    background-position: -75px -620px;
+    color: #cacaca;
+    cursor: default;
+}
+
+.u-page .zpgi {
+    height: 22px;
+    padding: 0 8px;
+    background-color: #fff;
+    line-height: 22px;
+}
+
+.u-page .zpgi:hover {
+    border-color: #666;
+}
+
+.u-page .js-selected,
+.u-page .js-selected:hover {
+    background-position: 0 -650px;
+    border-color: #A2161B;
+    color: #fff;
+    cursor: default;
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>歌单页-音乐推荐系统</title>
+    <link rel="stylesheet" type="text/css" href="/css/core.css">
+    <link rel="stylesheet" type="text/css" href="/css/gedan.css">
+    <link rel="shortcut icon" type="text/css" href="/favicon.ico">
+</head>
+
+<body>
+    <!--公共头部-->
+    <!--公共头部-->
+    <div id="g-topbar" class="g-topbar">
+        <!--上层bar-->
+        <div class="m-top">
+            <div class="wrap g-ww">
+                <!--导航部分-->
+                <ul class="m-nav" id="m-nav">
+                    <li><a href="/"><img src="/img/registAndLoginPage/newlogo.png" style="width: 256px; height: 70px"/></a></li>
+                    <li>
+                        <a  href="/" hidefocus="true">
+                            <em>发现音乐</em>
+                            <sub>&nbsp;</sub>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/toRanking">
+                            <em>排行榜</em>
+                            <sub>&nbsp;</sub>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active" href="/toPlaylist">
+                            <em>歌单</em>
+                            <sub>&nbsp;</sub>
+                        </a>
+                    </li>
+
+                </ul>
+                <div class="m-login">
+                    <a href="/toLogin"  th:if="${session.user} eq null" id="a-login">登录</a>
+                    <a ><span th:if="${session.user} ne null" th:text="${session.user.uname}"></span></span></a>
+
+                </div>
+                <div class="m-search">
+                    <input type="text" placeholder="单曲/歌手/专辑/歌单/MV/用户">
+                </div>
+
+            </div>
+        </div>
+        <!--中层bar-->
+        <div class="m-center"></div>
+    </div>
+    <!-- 全部歌单 -->
+    <div class="all-gedan g-w">
+        <div class="gedan-title">
+            <h3>
+                <span>全部</span>
+                <div class="tab">
+                    <a href="#">华语</a>
+                    <span>|</span>
+                    <a href="#">流行</a>
+                    <span>|</span>
+                    <a href="#">摇滚</a>
+                    <span>|</span>
+                    <a href="#">民谣</a>
+                    <span>|</span>
+                    <a href="#">电子</a>
+                </div>
+            </h3>
+            <div class="title-hot m-btn1">
+                <a class="a1" href="#">热门</a>
+                <a class="a2" href="#">最新</a>
+            </div>
+        </div>
+        <ul class="clearfix">
+            <li th:each="i:${pageInfo.list}">
+                <div class="hot-fm">
+                    <img th:src="${i.playlistCoverUrl}" height="140" width="140"  alt="">
+                    <a th:href="@{/playlist/getSinglePlaylistInfo/} + ${i.playlistID}" class="g-coverall"></a>
+                    <div class="fm-bottom g-coverall">
+                        <a th:href="@{/playlist/getSinglePlaylistInfo/} + ${i.playlistID}" class="g-iconall"></a>
+                        <sub class="g-iconall"></sub>
+                        <span th:text="${#strings.substring(i.playCount,0,#strings.length(i.playCount)-4)} + '万'">播放量</span>
+                    </div>
+                </div>
+                <p>
+                    <a class="g-thide" th:href="@{/playlist/getSinglePlaylistInfo/} + ${i.playlistID}" th:text="${#strings.abbreviate(i.playlistName,16)}">怀旧｜予谁思念，清瘦了我的岁月</a>
+                </p>
+<!--                <p class="dec">-->
+<!--                    <span class="s-fc4">by</span>-->
+<!--                    <a class="g-thide mn"  href="#">Nickidot</a>-->
+<!--                </p>-->
+            </li>
+
+        </ul>
+        <div id="m-pl-pager">
+            <div class="u-page">
+                <a class="zprv zbtn " th:if="${pageInfo.pageNum} ne 1" th:href="@{/toPlaylist/(pageNum=${pageInfo.prePage})}">上一页</a>
+                <a class="zpgi js-selected" th:href="@{/toPlaylist(pageNum=1)}">1</a>
+                <a class="zpgi" th:href="@{/toPlaylist(pageNum=2)}">2</a>
+                <a class="zpgi" th:href="@{/toPlaylist(pageNum=3)}">3</a>
+                <a class="zpgi" th:href="@{/toPlaylist(pageNum=4)}">4</a>
+                <a class="zpgi" th:href="@{/toPlaylist(pageNum=5)}">5</a>
+                <a class="zpgi" th:href="@{/toPlaylist(pageNum=6)}">6</a>
+                <a class="zpgi" th:href="@{/toPlaylist(pageNum=7)}">7</a>
+                <span>...</span>
+                <a class="zpgi" th:text="'共' + ${pageInfo.pages} + '页'">48</a>
+                <a class="znxt zbtn" th:if="${pageInfo.pageNum} ne ${pageInfo.pages}" th:href="@{/toPlaylist/(pageNum=${pageInfo.nextPage})}">下一页</a>
+            </div>
+        </div>
+    </div>
+    <!--底部播放部分-->
+    <div class="g-play" id="g_play">
+        <div class="p-bg g-playbar"></div>
+        <div class="p-main">
+            <div class="g-w" id="play">
+                <div class="p-kz">
+                    <a href="javascript:;" title="上一首" class="kz-s g-playbar"></a>
+                    <a href="javascript:;" title="播放" class="kz-p g-playbar"></a>
+                    <a href="javascript:;" title="下一首" class="kz-x g-playbar"></a>
+                </div>
+                <div class="p-jd">
+                    <div class="p-img">
+                        <img src="/img/sprites/default_album.jpg" alt="">
+                        <a href="javascript:;" class="g-playbar"></a>
+                    </div>
+                    <div class="jindu">
+                        <div class="tiao g-statbar">
+                            <span class="t-red g-statbar"></span>
+                            <span class="t-btn">
+                            <i></i>
+                        </span>
+                        </div>
+                        <span class="t-time">
+                        <i>00:00</i>
+                        <em>/</em>
+                        00:00
+                    </span>
+                    </div>
+                    <div class="add-btn">
+                        <a href="javascript:;" class="btn-a1 g-playbar" title="收藏"></a>
+                        <a href="javascript:;" class="btn-a2 g-playbar" title="分享"></a>
+                    </div>
+                </div>
+                <div class="p-fx g-playbar">
+                    <a href="javascript:;" class="a-yl g-playbar"></a>
+                    <a href="javascript:;" class="a-sx g-playbar a-xunhuai"></a>
+                    <a href="javascript:;" class="a-bflb g-playbar">
+                        <i>0</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="suo">
+            <div class="suo-lt g-playbar">
+                <a href="javascript:;" class="a-suo g-playbar"></a>
+            </div>
+            <div class="suo-rt g-playbar"></div>
+        </div>
+    </div>
+
+    <!--公共底部-->
+    <div class="g-footer">
+        <div class="g-w">
+            <a href="#" class="a-one">
+                <span class="f-f3">音乐推荐系统</span>
+                <br>
+                <span class="f-f4">基于协同过滤及内容推荐</span>
+            </a>
+            <div class="copy">
+                <p>
+                    <span>·</span><a href="http://www.beian.miit.gov.cn/">粤ICP备20008693号</a><span>·</span>
+                    <br><a href="javascript:;">Copyright © 2020</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" id="g_back" class="m-back g-sprite">回到顶部</a>
+</body>
+</body>
+
+</html>
+<script src="/js/index.js"></script>

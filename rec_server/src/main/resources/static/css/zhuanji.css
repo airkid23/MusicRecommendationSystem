@@ -1,0 +1,733 @@
+.main {
+    background: url(../img/sprites/wrap1.png) repeat-y 100% 100%;
+    border: solid #d3d3d3;
+    border-width: 0 1px;
+}
+
+.m-lt {
+    width: 640px;
+    margin-right: -251px;
+    float: left;
+    padding: 37px 30px 40px 39px;
+}
+
+.m-lt .lt-content {
+    margin-right: 250px;
+}
+
+.pinglu {
+    width: 100%;
+}
+
+.pl-title {
+    height: 33px;
+    border-bottom: 2px solid #c20c0c;
+}
+
+.pl-title>h3 {
+    font-size: 20px;
+    line-height: 28px;
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.pl-title > span {
+    color: #666;
+    margin: 9px 0 0 20px;
+}
+
+.pl-cmmt {
+    margin: 20px 0 0;
+}
+
+.head,
+.head>img {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+.holder-parent {
+    margin-left: 62px;
+    padding-right: 14px;
+}
+
+.holder-parent .p-txt {
+    width: 100%;
+    padding: 5px 6px 6px;
+    border: 1px solid #cdcdcd;
+    height: 50px;
+    border-radius: 2px;
+    line-height: 19px;
+}
+
+.pl-btns {
+    padding-top: 10px;
+}
+
+.pl-btns .a-pl {
+    width: 46px;
+    height: 25px;
+    background-position: -84px -64px;
+    color: #fff;
+    text-align: center;
+    line-height: 25px;
+    float: right;
+    display: block;
+}
+
+.pl-btns .a-pl:hover {
+    color: #fff;
+    text-decoration: none;
+    background-position: -84px -94px;
+}
+
+.pl-btns .max-num {
+    float: right;
+    margin-right: 10px;
+    color: #999;
+    line-height: 25px;
+}
+
+.u-hd4 {
+    position: relative;
+    top: 1px;
+    height: 20px;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+.item {
+    padding: 15px 0;
+    border-top: 1px dotted #ccc;
+}
+
+.item .item-txt {
+    word-break: break-word;
+    width: 100%;
+    overflow: hidden;
+    line-height: 20px;
+}
+
+.item .rp {
+    margin-top: 15px;
+}
+
+.rp .time {
+    float: left;
+    color: #999;
+}
+
+.rp > a {
+    float: right;
+    color: #666;
+}
+
+.s-fc7 {
+    color: #0c73c2;
+}
+
+.s-fc7:hover {
+    color: #0c73c2;
+}
+
+.m-rt {
+    float: right;
+    width: 250px;
+}
+
+.m-singer {
+    margin-top: 15px;
+}
+
+.m-rt-h {
+    width: 210px;
+    height: 23px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ccc;
+}
+
+.m-singer > h3 > a {
+    float: right;
+    color: #666;
+    font-weight: normal;
+}
+
+.m-singer > ul {
+    margin: 6px 0 14px 20px;
+}
+
+.m-singer li {
+    background-color: #fafafa;
+    margin-top: 14px;
+    float: left;
+    width: 210px;
+    height: 62px;
+}
+
+.m-singer li:hover {
+    background-color: #f4f4f4;
+}
+
+.m-singer li > a {
+    display: block;
+}
+
+.m-singer li > a:hover {
+    text-decoration: none;
+}
+
+.m-singer li > a > img {
+    float: left;
+}
+
+.m-singer li > a > div {
+    float: left;
+    height: 60px;
+    width: 133px;
+    border: solid #e9e9e9;
+    border-width: 1px 1px 1px 0;
+    padding-left: 14px;
+}
+
+.m-singer li > a > div > h4 {
+    margin: 8px 0 11px 0;
+    font-size: 14px;
+}
+
+.m-singer li > a > div > p {
+    width: 80%;
+    color: #666;
+}
+
+.m-music > a {
+    width: 160px;
+    margin-left: 20px;
+    display: inline-block;
+    background-position: 0 -59px;
+    padding-left: 50px;
+}
+
+.m-music > a:hover {
+    background-position: 0 -141px;
+}
+
+.m-music > a > i {
+    width: 160px;
+    height: 30px;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 30px;
+    background-position: right -100px;
+}
+
+.m-music > a:hover > i {
+    background-position: right -182px;
+}
+
+.m-dj {
+    margin-top: 30px;
+}
+
+.m-dj > ul {
+    margin: 10px 0 0 20px;
+}
+
+.m-dj li {
+    margin-top: 10px;
+    float: left;
+}
+
+.m-dj li > a {
+    float: left;
+    margin-right: 10px;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.info {
+    float: left;
+    width: 160px;
+    line-height: 21px;
+}
+
+.info > a {
+    float: left;
+}
+
+.info > sub {
+    width: 12px;
+    height: 12px;
+    display: block;
+    float: left;
+    margin-top: 4px;
+    background: url(../img/sprites/icon.png) no-repeat 0 0;
+}
+
+.info > p {
+    width: 160px;
+    color: #666;
+}
+
+.u-page {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.u-page a {
+    background: url(../img/sprites/button.png) no-repeat 0 99999px;
+}
+
+.u-page a:hover {
+    text-decoration: none;
+}
+
+.u-page .zbtn {
+    height: 24px;
+    line-height: 24px;
+    color: #333;
+    text-align: left;
+    padding: 0;
+}
+
+.u-page .zbtn,
+.u-page .zpgi {
+    margin: 0 1px 0 2px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    vertical-align: middle;
+}
+
+.u-page .zprv {
+    width: 47px;
+    padding-left: 22px;
+    background-position: 0 -560px;
+}
+
+.u-page .zprv:hover {
+    background-position: 0 -590px;
+}
+
+.u-page .znxt {
+    width: 57px;
+    padding-left: 12px;
+    background-position: -75px -560px;
+}
+
+.u-page .znxt:hover {
+    background-position: -75px -590px;
+}
+
+.u-page .zprv.js-disable,
+.u-page .zprv.js-disable:hover {
+    background-position: 0 -620px;
+    color: #cacaca;
+    cursor: default;
+}
+
+.u-page .znxt.js-disable,
+.u-page .znxt.js-disable:hover {
+    background-position: -75px -620px;
+    color: #cacaca;
+    cursor: default;
+}
+
+.u-page .zpgi {
+    height: 22px;
+    padding: 0 8px;
+    background-color: #fff;
+    line-height: 22px;
+}
+
+.u-page .zpgi:hover {
+    border-color: #666;
+}
+
+.u-page .js-selected,
+.u-page .js-selected:hover {
+    background-position: 0 -650px;
+    border-color: #A2161B;
+    color: #fff;
+    cursor: default;
+}
+
+.zhuanji-logo {
+    width: 177px;
+    height: 177px;
+    position: relative;
+    float: left;
+}
+
+.zhuanji-logo>img {
+    width: 100%;
+    height: 100%;
+}
+
+.zhuanji-logo-sp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 209px;
+    height: 177px;
+    background-position: 0 -986px;
+}
+
+.zhuanji .cnt {
+    float: right;
+    width: 414px;
+}
+
+.hd {
+    height: 31px;
+    position: relative;
+}
+
+.hd>i {
+    width: 54px;
+    height: 24px;
+    background-position: 0 -245px;
+    float: left;
+}
+
+.hd .name {
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    vertical-align: middle;
+    position: absolute;
+    top: -6px;
+    margin-left: 10px;
+}
+
+.des {
+    margin: 10px 0;
+    color: #666;
+}
+
+.m-info {
+    margin-bottom: 25px;
+    margin-right: -10px;
+}
+
+.m-info > .a-btn {
+    margin-right: 5px;
+    float: left;
+    display: inline-block;
+    line-height: 31px;
+    height: 31px;
+    cursor: pointer;
+    padding: 0 5px 0 0;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.m-info > .a-btn >i {
+    display: inline-block;
+    height: 31px;
+    line-height: 31px;
+    overflow: hidden;
+    vertical-align: top;
+    text-align: center;
+    cursor: pointer;
+}
+
+.a-play {
+    background-position: right -428px;
+}
+
+.a-play>i {
+    padding: 0 7px 0 8px;
+    color: #fff;
+    background-position: 0 -387px;
+}
+
+.ply {
+    float: left;
+    width: 20px;
+    height: 18px;
+    margin: 6px 2px 2px 0;
+    background-position: 0 -1622px;
+    overflow: hidden;
+}
+
+.a-play:hover {
+    background-position: right -510px;
+}
+
+.a-play:hover>i {
+    background-position: 0 -469px;
+}
+
+.a-play:hover .ply {
+    background-position: -28px -1622px;
+}
+
+.a-fav {
+    background-position: right -1020px;
+}
+
+.a-fav > i {
+    padding-right: 2px;
+    padding-left: 28px;
+    background-position: 0 -977px;
+}
+
+.a-fav:hover {
+    background-position: right -1106px;
+}
+
+.a-fav:hover>i {
+    background-position: 0 -1063px;
+}
+
+.a-dl {
+    background-position: right -1020px;
+}
+
+.a-dl > i {
+    padding-right: 2px;
+    padding-left: 28px;
+    background-position: 0 -2761px;
+}
+
+.a-dl:hover {
+    background-position: right -1106px;
+}
+
+.a-dl:hover>i {
+    background-position: 0 -2805px;
+}
+
+.geci {
+    height: auto;
+    margin-top: 13px;
+    line-height: 23px;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+.f-hide {
+    display: none;
+}
+
+.jieshao .crl {
+    float: right;
+}
+
+.crl .zk {
+    width: 11px;
+    height: 8px;
+    background-position: -65px -520px;
+    display: inline-block;
+}
+
+.crl .sq {
+    width: 11px;
+    height: 8px;
+    background-position: -45px -520px;
+    display: inline-block;
+}
+
+
+/*回复框*/
+
+.huifu {
+    margin: 0 0 15px 60px;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+}
+
+.iner {
+    padding: 15px;
+    background: #f8f8f8;
+    border: 1px solid #fcfcfc;
+    border-radius: 2px;
+}
+
+.iner .holder-parent {
+    margin-left: 0;
+}
+
+.iner .holder-parent .p-txt {
+    height: 38px;
+}
+
+.jieshao {
+    margin-top: 20px;
+    padding-bottom: 30px;
+}
+
+.jieshao p {
+    color: rgb(102, 102, 102);
+    text-indent: 2em;
+    line-height: 24px;
+    margin-top: 4px;
+}
+
+.f-brk {
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+}
+
+
+/*专辑歌曲列表*/
+.tabs {
+    margin-bottom: 30px;
+}
+
+.m-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
+    border: 1px solid #d9d9d9
+}
+
+.m-table th,
+.m-table .wp,
+.m-table .s-ply,
+.m-table .cs,
+.m-table .dl {
+    background: url(../img/sprites/table.png) no-repeat 0 9999px;
+}
+
+.m-table th {
+    height: 38px;
+    background-color: #f7f7f7;
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    vertical-align: top;
+    text-align: left;
+    font-weight: normal;
+    color: #666;
+}
+
+.m-table .w1 {
+    width: 74px;
+}
+
+.m-table .w2 {
+    width: 91px;
+}
+
+.m-table .w3 {
+    width: 14%;
+}
+
+.m-table th.first .wp {
+    background: none;
+}
+
+.m-table .wp {
+    height: 18px;
+    line-height: 18px;
+    padding: 8px 10px;
+    background-position: 0 -56px;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.m-table td {
+    padding: 6px 10px;
+    line-height: 18px;
+    text-align: left;
+}
+
+.m-table .hd {
+    height: 18px;
+}
+
+.m-table .hd .num {
+    width: 25px;
+    margin-left: 5px;
+    color: #999;
+}
+
+.m-table .s-ply {
+    width: 17px;
+    height: 17px;
+    float: right;
+    cursor: pointer;
+    background-position: 0 -103px;
+}
+
+.m-table .s-ply:hover {
+    background-position: 0 -128px;
+}
+
+.m-table .ttc {
+    height: 18px;
+    margin-right: 20px;
+}
+
+.ttc .txt {
+    position: relative;
+    display: inline-block;
+    padding-right: 25px;
+    margin-right: -25px;
+    max-width: 99%;
+    height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #333;
+}
+
+.m-table tr:hover .time {
+    display: none;
+}
+
+
+.m-table tr:hover .min-btn {
+    display: block;
+}
+
+.min-btn {
+    display: none;
+}
+
+.min-btn a {
+    width: 13px;
+    height: 13px;
+    float: left;
+    margin-top: 2px;
+}
+
+.min-btn .add {
+    background-position: -22px -700px;
+}
+
+.min-btn .cs {
+    width: 18px;
+    height: 16px;
+    margin: 2px 0 0 4px;
+    background-position: 0 -174px;
+}
+
+.min-btn .cs:hover {
+    background-position: -20px -174px;
+}
+
+.min-btn .dl {
+    width: 18px;
+    height: 16px;
+    margin: 2px 0 0 4px;
+    background-position: -81px -174px;
+}
+
+.min-btn .dl:hover {
+    background-position: -104px -174px;
+}
+
+tr:nth-of-type(odd) td  {
+    background-color: #f7f7f7;
+}

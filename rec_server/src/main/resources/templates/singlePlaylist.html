@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${playlist.playlistName}">音乐推荐系统</title>
+    <link rel="stylesheet" type="text/css" href="/css/core.css">
+    <link rel="stylesheet" type="text/css" href="/css/zhuanji.css">
+    <link rel="shortcut icon" type="text/css" href="/favicon.ico">
+    <style>
+        #star-rating i{ font-style: normal; cursor: pointer; }
+    </style>
+</head>
+
+<body>
+    <!--公共头部-->
+    <div id="g-topbar" class="g-topbar">
+        <!--上层bar-->
+        <div class="m-top">
+            <div class="wrap g-ww">
+                <!--导航部分-->
+                <ul class="m-nav" id="m-nav">
+                    <li><a href="/"><img src="/img/registAndLoginPage/newlogo.png" style="width: 256px; height: 70px"/></a></li>
+                    <li>
+                        <a  href="/" hidefocus="true">
+                            <em>发现音乐</em>
+                            <sub>&nbsp;</sub>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/toRanking">
+                            <em>排行榜</em>
+                            <sub>&nbsp;</sub>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active" href="/toPlaylist">
+                            <em>歌单</em>
+                            <sub>&nbsp;</sub>
+                        </a>
+                    </li>
+
+                </ul>
+                <div class="m-login">
+                    <a href="/toLogin"  th:if="${session.user} eq null" id="a-login">登录</a>
+                    <span hidden id="userID" th:if="${session.user} ne null"th:text="${session.user.uid}"></span>
+                    <a ><span th:if="${session.user} ne null" th:text="${session.user.uname}"></span></span></a>
+
+                </div>
+                <div class="m-search">
+                    <input type="text" placeholder="单曲/歌手/专辑/歌单/MV/用户">
+                </div>
+
+            </div>
+        </div>
+        <!--中层bar-->
+        <div class="m-center"></div>
+    </div>
+    <!-- main部分 -->
+    <div class="main g-w clearfix">
+        <div class="m-lt">
+            <!-- 专辑 -->
+            <div class="zhuanji">
+                <div class="clearfix">
+                    <div class="zhuanji-logo">
+                        <img th:if="${playlist} ne null"   th:src="${playlist.playlistCoverUrl}">
+                        <span class="zhuanji-logo-sp g-coverall"></span>
+                    </div>
+                    <div class="cnt">
+                        <div class="hd clearfix">
+                            <i class="g-icon"></i>
+                            <span class="name" th:text="${playlist.playlistName}">golden darkness days 曜日</span>
+                        </div>
+                        <span id="playlistID"  hidden th:text="${playlist.playlistID}"></span>
+                        <p class="des">Created By：<span th:text="${creatorName}"></span></p>
+                        <p class="des">累计播放量：<span th:text="${playlist.playCount}"></span></p>
+                        <p class="des">创建时间：<span th:text="${playlist.createTime}">2016-12-05</span></p>
+                        <p class="des">标签：<span th:text="${playlist.tag}">华语</span></p>
+                        <p class="des">评分:  <span id="star-rating"></span>  <p id="star-tips"></p></p>
+                        <br>
+                        <div class="m-info clearfix">
+                            <a href="javascript:;" class="a-play a-btn m-btn">
+                                <i class="m-btn"><em class="ply m-btn"></em>播放</i>
+                            </a>
+                            <a href="javascript:;" class="a-btn m-btn a-fav">
+                                <i class="m-btn">收藏</i>
+                            </a>
+                            <a href="javascript:;" class="a-btn m-btn a-dl">
+                                <i class="m-btn">下载</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="jieshao">
+                    <h3>歌单介绍：</h3>
+                    <div id="jies_dot" class="jieshao-txt" th:text="${playlist.desc}">
+                    </div>
+                </div>
+                <div class="song-tab">
+                    <div class="pl-title">
+                        <h3>
+                            <span>歌曲列表</span>
+                        </h3>
+                        <span><span th:text="'共' + ${playlist.SongsCount}">14</span>首歌</span>
+                    </div>
+                    <div class="tabs">
+                        <table class="m-table">
+                            <thead>
+                                <tr>
+                                    <th class="first w1">
+                                        <div class="wp">&nbsp;</div>
+                                    </th>
+                                    <th>
+                                        <div class="wp">歌曲标题</div>
+                                    </th>
+                                    <th class="w2">
+                                        <div class="wp">时长</div>
+                                    </th>
+
+                                    <th class="w3">
+                                        <div class="wp">评论数</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="song, indexInc:${songs}">
+                                    <td>
+                                        <div class="hd">
+                                            <span class="s-ply"></span>
+                                            <span class="num" th:text="${indexInc.count}">1</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="ttc">
+                                            <span class="txt">
+                                                <a th:href="@{/song/getSongs/} + ${song.songID}"><span th:text="${song.songName}">golden darkness days 曜日</span></a>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <span class="time">04:33</span>
+                                            <div class="min-btn">
+                                                <a href="javascript:;" class="add g-icon" title="添加到播放列表"></a>
+                                                <a href="javascript:;" class="cs" title="收藏"></a>
+                                                <a href="javascript:;" class="dl" title="下载"></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <a href="#"><span th:text="${song.commentCounts}"></span></a>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <!-- 评论 -->
+            <div id="pinglun" class="pinglu">
+                <div class="pl-title">
+                    <h3>
+                        <span>评论</span>
+                    </h3>
+                    <span>共<span th:text="${playlist.commentsCount}">14292</span>条评论</span>
+                </div>
+                <!-- 评论列表 -->
+            </div>
+        </div>
+        <div class="m-rt">
+            <div class="m-singer">
+                <h3 class="m-rt-h">
+<!--                <a href="#">查看全部></a>-->
+                <span>基于标签相似度推荐</span>
+            </h3>
+                <ul class="clearfix" th:if="${simPlaylist} ne null" th:each="pl,iterStat:${simPlaylist}">
+                    <li>
+                        <a th:if="${simPlaylist} ne null"  th:href="@{/playlist/getSinglePlaylistInfo/} + ${pl.playlistID}">
+                            <img  alt="" th:src="${pl.playlistCoverUrl}" style="width: 60px; height: 60px">
+                            <div>
+                                <h4>
+                                <span th:if="${simPlaylist} ne null" th:text="${pl.playlistName}"></span>
+                            </h4>
+                                <p class="g-thide" th:if="${simPlaylist} ne null" th:text="'相似度' + ${simScore[__${iterStat.index}__]}"></p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="m-dj">
+                <h3 class="m-rt-h">
+                <span>热门DJ</span>
+            </h3>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="/img/singer/dj_03.jpg" alt="">
+                        </a>
+                        <div class="info">
+                            <a href="#">灵伟</a>
+                            <sub>&nbsp;</sub>
+                            <p class="g-thide">电台DJ、资深乐评人</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/img/singer/dj_02.jpg" alt="">
+                        </a>
+                        <div class="info">
+                            <a href="#">庞舸</a>
+                            <sub>&nbsp;</sub>
+                            <p class="g-thide">深圳电台飞扬971主持人</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/img/singer/dj_04.jpg" alt="">
+                        </a>
+                        <div class="info">
+                            <a href="#">林海</a>
+                            <sub>&nbsp;</sub>
+                            <p class="g-thide">著名音乐节目主持人</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/img/singer/dj_02.jpg" alt="">
+                        </a>
+                        <div class="info">
+                            <a href="#">阿鹏叔</a>
+                            <sub>&nbsp;</sub>
+                            <p class="g-thide">桒惪SOUND创办人</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/img/singer/dj_05.jpg" alt="">
+                        </a>
+                        <div class="info">
+                            <a href="#">DJ晓苏</a>
+                            <sub>&nbsp;</sub>
+                            <p class="g-thide">独立DJ，CRI环球旅游广播特邀DJ</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--底部播放部分-->
+    <div class="g-play" id="g_play">
+        <div class="p-bg g-playbar"></div>
+        <div class="p-main">
+            <div class="g-w" id="play">
+                <div class="p-kz">
+                    <a href="javascript:;" title="上一首" class="kz-s g-playbar"></a>
+                    <a href="javascript:;" title="播放" class="kz-p g-playbar"></a>
+                    <a href="javascript:;" title="下一首" class="kz-x g-playbar"></a>
+                </div>
+                <div class="p-jd">
+                    <div class="p-img">
+                        <img src="/img/sprites/default_album.jpg" alt="">
+                        <a href="javascript:;" class="g-playbar"></a>
+                    </div>
+                    <div class="jindu">
+                        <div class="tiao g-statbar">
+                            <span class="t-red g-statbar"></span>
+                            <span class="t-btn">
+                            <i></i>
+                        </span>
+                        </div>
+                        <span class="t-time">
+                        <i>00:00</i>
+                        <em>/</em>
+                        00:00
+                    </span>
+                    </div>
+                    <div class="add-btn">
+                        <a href="javascript:;" class="btn-a1 g-playbar" title="收藏"></a>
+                        <a href="javascript:;" class="btn-a2 g-playbar" title="分享"></a>
+                    </div>
+                </div>
+                <div class="p-fx g-playbar">
+                    <a href="javascript:;" class="a-yl g-playbar"></a>
+                    <a href="javascript:;" class="a-sx g-playbar a-xunhuai"></a>
+                    <a href="javascript:;" class="a-bflb g-playbar">
+                        <i>0</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="suo">
+            <div class="suo-lt g-playbar">
+                <a href="javascript:;" class="a-suo g-playbar"></a>
+            </div>
+            <div class="suo-rt g-playbar"></div>
+        </div>
+    </div>
+    <!--登录框-->
+    <!--公共底部-->
+    <div class="g-footer">
+        <div class="g-w">
+            <a href="#" class="a-one">
+                <span class="f-f3">音乐推荐系统</span>
+                <br>
+                <span class="f-f4">基于协同过滤及内容推荐</span>
+            </a>
+            <div class="copy">
+                <p>
+                    <span>·</span><a href="http://www.beian.miit.gov.cn/">粤ICP备20008693号</a><span>·</span>
+                    <br><a href="javascript:;">Copyright © 2020</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" id="g_back" class="m-back g-sprite">回到顶部</a>
+</body>
+<script th:inline="javascript">
+    window.onload = function () {
+        var pdStar = new PDStar();
+        pdStar.PDstar("star-rating",{
+            tipEle: "star-tips",
+            fontSize: "20px",
+            tips: ["不推荐", "一般", "不错", "很棒", "极力推荐！"],
+            callBack: function(score) {
+                var uid = document.getElementById("userID").innerHTML
+                // console.log(uid)
+                // console.log([[${playlist.playlistID}]])
+                // console.log(score)
+                $.ajax({
+                    url: '/playlistRating',
+                    type: "POST",
+                    data:{
+                        uid: uid,
+                        playlistID: [[${playlist.playlistID}]],
+                        rating: score
+                    },
+
+                    success: function (){
+                        document.getElementById("star-tips").innerText = "评分成功!";
+                        // console.log("记录成功")
+                    }
+                })
+            },
+            isReScore: true,
+            score: 3
+        });
+
+    };
+</script>
+<script type="text/javascript" src="/libs/jquery-1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/zhuanji.js"></script>
+<script type="text/javascript" src="/js/music.js"></script>
+<script type="text/javascript" src="/js/starRating.js"></script>
+</html>

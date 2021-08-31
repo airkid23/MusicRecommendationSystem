@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>排行榜-音乐推荐系统</title>
+    <link rel="stylesheet" href="/css/rankinglist.css"/>
+    <link rel="stylesheet" href="/css/core.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" class="ico"/>
+</head>
+<body>
+
+<div id="g-topbar" class="g-topbar">
+    <!--上层bar-->
+    <div class="m-top">
+        <div class="wrap g-ww">
+
+            <!--导航部分-->
+            <ul class="m-nav" id="m-nav">
+                <li><a href="/"><img src="/img/registAndLoginPage/newlogo.png" style="width: 256px; height: 70px"/></a></li>
+                <li>
+                    <a  href="/" hidefocus="true">
+                        <em>发现音乐</em>
+                        <sub>&nbsp;</sub>
+                    </a>
+                </li>
+                <li>
+                    <a class="active" href="/toRanking">
+                        <em>排行榜</em>
+                        <sub>&nbsp;</sub>
+                    </a>
+                </li>
+                <li>
+                    <a href="/toPlaylist">
+                        <em>歌单</em>
+                        <sub>&nbsp;</sub>
+                    </a>
+                </li>
+
+            </ul>
+            <div class="m-login">
+                <a href="/toLogin"  th:if="${session.user} eq null" id="a-login">登录</a>
+                <a ><span th:if="${session.user} ne null" th:text="${session.user.uname}"></span></span></a>
+
+            </div>
+            <div class="m-search">
+                <input type="text" placeholder="单曲/歌手/专辑/歌单/MV/用户">
+            </div>
+
+        </div>
+    </div>
+    <!--中层bar-->
+    <div class="m-center"></div>
+</div>
+
+<!--主体部分的开始-->
+<div class="m-main">
+    <!--内容侧边栏开始-->
+    <div class="m-main-side">
+        <div class="m-main-side-top">
+            <p class="txt-head1">云音乐飙升榜</p>
+            <ul>
+                <li class="top-bgc" id="top-bgc">
+                    <a href="#">
+                        <span class="txt-top">累计播放量排行</span>
+                        <span class="txt-bottom">每天更新</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="txt-top">累计分享量排行</span>
+                        <span class="txt-bottom">每天更新</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="txt-top">网易原创歌曲榜</span>
+                        <span class="txt-bottom">每周四更新</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="txt-top">云音乐热歌榜</span>
+                        <span class="txt-bottom">每周四更新</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--内容侧边栏结束-->
+    <!--内容展示区开始-->
+    <div class="m-main-content">
+        <!-- 飙升榜的开始 -->
+        <div class="content-bsb">
+
+            <div class="content-bsb-bottom">
+                <div class="bottom-txt">
+                    <span class="txt1">歌曲列表</span>
+                    <span class="txt2">100首歌</span>
+                    <span class="txt3">
+                        播放：
+                        <span class="txt4">408083200</span>
+                        次
+                    </span>
+                </div>
+            </div>
+            <div class="content-bsb-center">
+                <div class="center-head">
+                    <div class="head1"></div>
+                    <div class="head2">标题</div>
+                    <div class="head3">播放量</div>
+                    <div class="head4">评论数</div>
+                </div>
+                <div class="center-content">
+                    <ul class="content-list" id="center-content-list">
+                        <li class="list-song01" th:each="p, indexInc:${playlists}">
+                            <ul class="tr02">
+                                <li th:text="${indexInc.count}">
+                                    1
+                                </li>
+                                <li>
+                                    <i></i>
+                                    <b></b>
+                                    <a th:href="@{/playlist/getSinglePlaylistInfo/} + ${p.playlistID}" th:text="${p.playlistName}"></a>
+                                </li>
+                                <li th:text="${p.playCount}"></li>
+                                <li th:text="${p.commentsCount}">CamelPha...</li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <div class="center-comment">
+                    <div class="comment-top">
+                        <span class="txt1">评论</span>
+                        <span class="txt2">共69235条评论</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--内容展示区结束-->
+</div>
+<div class="g-footer">
+    <div class="g-w">
+        <a href="#" class="a-one">
+            <span class="f-f3">音乐推荐系统</span>
+            <br>
+            <span class="f-f4">基于协同过滤及内容推荐</span>
+        </a>
+        <div class="copy">
+            <p>
+                <span>·</span><a href="http://www.beian.miit.gov.cn/">粤ICP备20008693号</a><span>·</span>
+                <br><a href="javascript:;">Copyright © 2020</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!--底部结束-->
+<script src="/libs/jquery-1.12.4/jquery.min.js"></script>
+<script src="/js/rankinglist.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/index.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
